@@ -1,0 +1,43 @@
+nav {
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+        background-color: #f8f9fa;
+        border-bottom: 1px solid #ccc;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    }
+    a,
+    .logout-button {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        padding: 1rem 1.5rem;
+        transition: background-color 0.3s ease;
+        background: transparent;
+        border: none;
+        font: inherit;
+        cursor: pointer;
+
+
+        &:hover {
+            background-color: #e0e0e0;
+        }
+    }
+    .active,
+    .logout-button 
+    .active:hover {
+        background-color: rgba(137, 46, 139, 0.553);
+        color: white;
+    }
+    .disabled {
+        color: #ccc;
+        pointer-events: none;
+    }
+}
+
