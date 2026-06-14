@@ -2,6 +2,8 @@ import type { Product, ProductCreateDTO } from '@features/products/entities/prod
 import './product-form.css';
 import { useState } from 'react';
 
+
+
 interface Props {
   editedProduct?: Product;
   onAdd?: (data: ProductCreateDTO) => Promise<void>;

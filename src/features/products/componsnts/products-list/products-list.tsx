@@ -1,15 +1,13 @@
 import './products-list.css';
 import { ProductItem } from '../product-item/product-item';
-import { ProductForm } from '../product-form/product-form';
 import { useProducts } from './use-products';
+import { Link } from 'react-router';
 import { useState } from 'react';
-import type { ProductCreateDTO } from '../../entities/products';
 
 export const ProductsList: React.FC = () => {
-    const { products, error, editProduct, addProduct, deleteProduct } =
+    const { products, error, editProduct,deleteProduct } =
         useProducts();
 
-        const [isAddOpen, setIsAddOpen] = useState(false);
 
         const [search, setSearch] = useState('');
         const [onlyOffers, setOnlyOffers] = useState(false);
@@ -24,22 +22,18 @@ export const ProductsList: React.FC = () => {
             return matchesName && matchesOffer;
         });
 
-        const handleAddProduct = async (product: ProductCreateDTO) => {
-            await addProduct(product);
-            setIsAddOpen(false);
-        };
-
+       
     return (
         <>
             {error && <p className="error">{error}</p>}
             
-            <details
-                open={isAddOpen}
-                onToggle={(event) => setIsAddOpen(event.currentTarget.open)}
-            >
-                  <summary>Add Product</summary>
-                  <ProductForm onAdd={handleAddProduct} />
-            </details>
+            
+                <div className="add-product">
+                    <Link to="/products/new">
+                        <button>Agregar producto</button>
+                    </Link>
+                </div>
+            
             
             <div className="products-filters">
                     <input
